@@ -25,7 +25,6 @@ public class Actor {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-
 	public int getId() {
 		return id;
 	}

@@ -1,5 +1,7 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Film {	
@@ -14,11 +16,12 @@ public class Film {
     private double repCost;
     private String rating;
     private String features;
+    private String language;
+    private List<Actor> actors;
     
-    
-	public Film(int filmId, String title, String desc, short releaseYear, int langId, int rentDur, double rate,
-			int length, double repCost, String rating, String features) {
-		super();
+	public Film(int filmId, String title, String desc, short releaseYear, int langId, 
+			int rentDur, double rate,
+			int length, double repCost, String rating, String features, String language) {
 		this.filmId = filmId;
 		this.title = title;
 		this.desc = desc;
@@ -30,9 +33,28 @@ public class Film {
 		this.repCost = repCost;
 		this.rating = rating;
 		this.features = features;
+		this.language = language; 
+	}
+	
+	 public Film(String title2, String desc2, short releaseYear2, String rating2) {
+		// TODO Auto-generated constructor stub
 	}
 
+	public String getLanguage() {
+		return language;
+	}
 
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	public List<Actor> getActors() {
+		 List<Actor> copy = new ArrayList<>(actors);
+		 return copy;
+	 }
+	 public void setActors(List<Actor> actors) {
+		 this.actors = actors;
+	 }
 	public int getFilmId() {
 		return filmId;
 	}
@@ -142,20 +164,19 @@ public class Film {
 		this.features = features;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Film [filmId=" + filmId + ", title=" + title + ", desc=" + desc + ", releaseYear=" + releaseYear
-				+ ", langId=" + langId + ", rentDur=" + rentDur + ", rate=" + rate + ", length=" + length + ", repCost="
-				+ repCost + ", rating=" + rating + ", features=" + features + "]";
+		return "Film [title=" + title + ", desc=" + desc + ", releaseYear=" + releaseYear
+				+ "rating=" + rating + ", language=" + language + "\n" + " actors="
+				+ actors + "]";
 	}
 
+	
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(desc, features, filmId, langId, length, rate, rating, releaseYear, rentDur, repCost, title);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
