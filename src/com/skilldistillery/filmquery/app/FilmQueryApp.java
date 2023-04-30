@@ -1,11 +1,8 @@
 package com.skilldistillery.filmquery.app;
-
 import java.util.List;
 import java.util.Scanner;
-
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
 import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
-import com.skilldistillery.filmquery.entities.Actor;
 import com.skilldistillery.filmquery.entities.Film;
 
 public class FilmQueryApp {
@@ -33,25 +30,23 @@ public class FilmQueryApp {
 			Film film = db.findFilmById(filmID);
 			if (film != null) {
 				System.out.println(db.findFilmById(filmID));
-			//	System.out.println(db.findActorsByFilmId(filmID));
 				System.out.println();
 				launch();
-			} else {
+			}
+		else {
 				System.out.println("No film found");
 				launch();
 			}
 		} else if (selectionNumber == 2) {
 			System.out.println("Enter keyword to search by");
 			String filmKeyword = kb.next();
-			List<Film> filmKeywordFilms = db.findFilmByKeyword(filmKeyword);			
+			List<Film> filmKeywordFilms = db.findFilmByKeyword(filmKeyword);	
 			if (filmKeywordFilms != null) {
-				for (Film film : filmKeywordFilms) {
-					System.out.println(film);
-					System.out.println();
-				}
 				launch();
+			
 			} else {
 				System.out.println("No film found");
+				System.out.println();
 				launch();
 			}
 
